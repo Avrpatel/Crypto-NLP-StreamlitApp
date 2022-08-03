@@ -47,8 +47,17 @@ option = st.selectbox(
 
 st.write('You chose:', option)
 
+# Choose to highlight min or max data within dataframes
+highlights = st.radio(
+     "Please select one of the following if you wish to highlight min or max data:",
+     ('None','Min', 'Max'))
+
+
+
 
 crypto_list = ['Luna', 'Bitcoin', 'Ethereum', 'Binance', 'Solana', 'Cardano']
+
+# Crypto Price csv 
 
 for x in crypto_list:
     if option == x:
@@ -59,8 +68,41 @@ for x in crypto_list:
         x_data.set_index(pd.to_datetime(x_data['Date'], infer_datetime_format=True, format='%Y%m%d'), inplace=True)
         x_data = x_data.drop(columns=['Date'])
 
+st.markdown("## Crypto Price Dataframe:")
 
-st.dataframe(x_data)
+if highlights == 'Max':
+    st.dataframe(x_data.style.highlight_max(axis=0, props='color:red'), width=1800)
+
+elif highlights == 'Min':
+    st.dataframe(x_data.style.highlight_min(axis=0, props='color:red'), width=1800)
+
+elif highlights == 'None':
+    st.dataframe(x_data, width=1800)
+
+    
+
+# AlphaVantage Sentiment csv
+
+for z in crypto_list:
+    if option == z:
+        z_path = Path(f'../data/AlphaVantage/{z}_sent.csv')
+        z_data = pd.read_csv(z_path)
+        # z_data.set_index(pd.to_datetime(z_data['Date'], infer_datetime_format=True, format='%Y%M%D'), inplace=True)
+        # z_data = z_data.drop(columns=['Date'])
+
+st.markdown("## AlphaVantage Sentiment Dataframe:")
+st.dataframe(z_data, width=1800)
+
+# if highlights == 'Max':
+#     st.dataframe(z_data.style.highlight_max(axis=0, props='color:red'), width=1800)
+
+# elif highlights == 'Min':
+#     st.dataframe(z_data.style.highlight_min(axis=0, props='color:red'), width=1800)
+    
+# elif highlights == 'None':
+#     st.dataframe(z_data, width=1800)
+
+# NewsAPI Sentiment csv
 
 for y in crypto_list:
     if option == y:
@@ -69,7 +111,16 @@ for y in crypto_list:
         y_data.set_index(pd.to_datetime(y_data['Date'], infer_datetime_format=True, format='%Y%M%D'), inplace=True)
         y_data = y_data.drop(columns=['Date'])
 
-st.dataframe(y_data)
+st.markdown("## News API Sentiment Dataframe:")
+
+if highlights == 'Max':
+    st.dataframe(y_data.style.highlight_max(axis=0, props='color:red'), width=1800)
+
+elif highlights == 'Min':
+    st.dataframe(y_data.style.highlight_min(axis=0, props='color:red'), width=1800)
+    
+elif highlights == 'None':
+    st.dataframe(y_data, width=1800)
 
 
 
@@ -97,7 +148,6 @@ news_sentiment_df = pd.DataFrame(y_data)
 final_news_df = news_sentiment_df.reset_index()
 
 
-
 if plot_type == 'Crypto Price':
      st.write('You selected crypto prices.')
 
@@ -113,13 +163,15 @@ if plot_type == 'Crypto Price':
     #  st.altair_chart(price_chart, use_container_width=True)
      
 
-#elif plot_type == 'AlphaVantage':
-    # st.write("You selected AlphaVantage.") 
-    # st.line_chart(data)
+elif plot_type == 'AlphaVantage':
+    st.write("You selected AlphaVantage.") 
+    
 
 elif plot_type == 'NewsAPI':
     st.write('You selected NewsAPI.')
-    fig_news_sentiment = px.line(final_news_df, x="Date", y="luna_avg", title='Crypto Closing Price')
-    st.plotly_chart(fig_news_sentiment, use_container_width=True)    
+    for score in crypto_list:
+        if score == option:
+            fig_news_sentiment = px.line(final_news_df, x="Date", y=f"{score}_avg", title='Crypto Average Sentiment Score - NewsAPI', markers=True)
+            st.plotly_chart(fig_news_sentiment, use_container_width=True)    
 
 

@@ -30,7 +30,7 @@ def set_bg(png_file):
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
 # having issues with this background image when trying to stream app online 
-# set_bg('../assets/background.png')
+set_bg('../assets/background.png')
 
 ######################################################################################
 
@@ -111,8 +111,7 @@ crypto_list = ['Luna', 'Bitcoin', 'Ethereum', 'Binance', 'Solana', 'Cardano']
 
 for x in crypto_list:
     if option == x:
-#         x_path = Path(f'../data/Price/{x}price.csv')
-        x_path = Path(f'Crypto-NLP-StreamlitApp/nlpapp/data/Price/{x}price.csv')
+        x_path = Path(f'../data/Price/{x}price.csv')
         x_data = pd.read_csv(x_path)
         
 

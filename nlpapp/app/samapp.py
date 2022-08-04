@@ -29,8 +29,8 @@ def set_bg(png_file):
     """ % bin_str
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
-
-set_bg('../assets/background.png')
+# having issues with this background image when trying to stream app online 
+# set_bg('../assets/background.png')
 
 ######################################################################################
 

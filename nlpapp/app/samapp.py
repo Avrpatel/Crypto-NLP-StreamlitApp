@@ -93,14 +93,14 @@ for z in crypto_list:
 st.markdown("## AlphaVantage Sentiment Dataframe:")
 st.dataframe(z_data, width=1800)
 
-# if highlights == 'Max':
-#     st.dataframe(z_data.style.highlight_max(axis=0, props='color:red'), width=1800)
+if highlights == 'Max':
+    st.dataframe(z_data.style.highlight_max(axis=0, props='color:red'), width=1800)
 
-# elif highlights == 'Min':
-#     st.dataframe(z_data.style.highlight_min(axis=0, props='color:red'), width=1800)
+elif highlights == 'Min':
+    st.dataframe(z_data.style.highlight_min(axis=0, props='color:red'), width=1800)
     
-# elif highlights == 'None':
-#     st.dataframe(z_data, width=1800)
+elif highlights == 'None':
+    st.dataframe(z_data, width=1800)
 
 # NewsAPI Sentiment csv
 

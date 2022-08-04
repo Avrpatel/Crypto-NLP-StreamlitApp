@@ -224,19 +224,6 @@ elif plot_type == 'All':
     st.plotly_chart(all_plot, use_container_width=True)    
 
 
-# Get DataFrame from ML csv
-
-# def get_ml_df(csv_name):
-#   csv_path = Path(f"../data/ML/{}")
-#   csv_data = pd.read_csv(csv_path)
-#   csv_data.set_index(pd.to_datetime(csv_data['Date'], infer_datetime_format=True), inplace=True)
-#   csv_data = csv_data.drop(columns=['Date'])
-#   csv_df = pd.DataFrame(csv_data)
-
-#   return csv_df
-
-
-
 # Radio Button to see ML dataframe and plot
 
 ml_plot_type = st.radio(

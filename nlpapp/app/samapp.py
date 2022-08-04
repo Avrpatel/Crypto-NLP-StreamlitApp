@@ -3,7 +3,6 @@ import pandas as pd
 import datetime as dt
 from pathlib import Path
 import numpy as np
-import altair as alt
 import plotly.express as px
 
 ######################################################################################
@@ -65,7 +64,7 @@ for x in crypto_list:
         x_data = pd.read_csv(x_path)
         
 
-        x_data.set_index(pd.to_datetime(x_data['Date'], infer_datetime_format=True, format='%Y%m%d'), inplace=True)
+        x_data.set_index(pd.to_datetime(x_data['Date'], infer_datetime_format=True), inplace=True)
         x_data = x_data.drop(columns=['Date'])
 
 st.markdown("## Crypto Price Dataframe:")
@@ -87,11 +86,10 @@ for z in crypto_list:
     if option == z:
         z_path = Path(f'../data/AlphaVantage/{z}_sent.csv')
         z_data = pd.read_csv(z_path)
-        # z_data.set_index(pd.to_datetime(z_data['Date'], infer_datetime_format=True, format='%Y%M%D'), inplace=True)
-        # z_data = z_data.drop(columns=['Date'])
+        z_data.set_index(pd.to_datetime(z_data['Date'], infer_datetime_format=True), inplace=True)
+        z_data = z_data.drop(columns=['Date'])
 
 st.markdown("## AlphaVantage Sentiment Dataframe:")
-st.dataframe(z_data, width=1800)
 
 if highlights == 'Max':
     st.dataframe(z_data.style.highlight_max(axis=0, props='color:red'), width=1800)
@@ -108,7 +106,7 @@ for y in crypto_list:
     if option == y:
         y_path = Path(f'../data/NewsAPI/{y}nlp.csv')
         y_data = pd.read_csv(y_path)
-        y_data.set_index(pd.to_datetime(y_data['Date'], infer_datetime_format=True, format='%Y%M%D'), inplace=True)
+        y_data.set_index(pd.to_datetime(y_data['Date'], infer_datetime_format=True), inplace=True)
         y_data = y_data.drop(columns=['Date'])
 
 st.markdown("## News API Sentiment Dataframe:")
@@ -129,23 +127,20 @@ elif highlights == 'None':
 
 # Radio Button
 
-plot_type = st.radio(
-     "Which data set would you like to see a plot for?:",
-     ('Crypto Price', 'AlphaVantage', 'NewsAPI', 'All'))
-
-# x_data_copy = x_data.reset_index()
-# price_df = pd.DataFrame(x_data_copy)
-# price_df['Date'] = price_df['Date'].dt.to_pydatetime()
-# date_list = list(price_df.index.values)
-
-# x_data_copy
-
 price_df = pd.DataFrame(x_data)
 new_price_df= price_df.reset_index()
 
 
 news_sentiment_df = pd.DataFrame(y_data)
 final_news_df = news_sentiment_df.reset_index()
+
+alpha_sentiment_df = pd.DataFrame(z_data)
+final_alpha_df = alpha_sentiment_df.reset_index()
+
+
+plot_type = st.radio(
+     "Which data set would you like to see a plot for?:",
+     ('Crypto Price', 'AlphaVantage', 'NewsAPI', 'All'))
 
 
 if plot_type == 'Crypto Price':
@@ -155,16 +150,11 @@ if plot_type == 'Crypto Price':
      st.plotly_chart(fig, use_container_width=True)
      
 
-    #  price_chart = alt.Chart(price_df).mark_line().encode(
-    #     x = price_df['Date'],
-    #     y = price_df['Close']
-    #  )
-
-    #  st.altair_chart(price_chart, use_container_width=True)
-     
-
 elif plot_type == 'AlphaVantage':
-    st.write("You selected AlphaVantage.") 
+    st.write("You selected AlphaVantage.")
+
+    fig_alpha_sentiment = px.line(final_alpha_df, x="Date", y="overall_sentiment_score", title='Crypto Closing Price')
+    st.plotly_chart(fig_alpha_sentiment, use_container_width=True)
     
 
 elif plot_type == 'NewsAPI':

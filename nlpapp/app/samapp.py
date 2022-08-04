@@ -111,7 +111,7 @@ crypto_list = ['Luna', 'Bitcoin', 'Ethereum', 'Binance', 'Solana', 'Cardano']
 
 for x in crypto_list:
     if option == x:
-        x_path = Path(f'../nlpapp/data/Price/{x}price.csv')
+        x_path = Path(f'../data/Price/{x}price.csv')
         x_data = pd.read_csv(x_path)
         
 

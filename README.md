@@ -83,6 +83,9 @@ The components of the analysis provided in the app are listed below:
 * Christine - Alphavantage news and intelligence sentiment analysis
 * Avi - additional news api and streamlit app design
 
+![App Overview](/Resources/App_gif/AppOverview.gif)
+
+
 ## General Process
 
 * ## Historical data

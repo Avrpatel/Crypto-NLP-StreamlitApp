@@ -91,7 +91,11 @@ The components of the analysis provided in the app are listed below:
 * ## Historical data
 Our app takes data on the historical close prices of crypto currencies from Alpha Vantage Cryptocurrencies API. We collected data beginning August 21, 2020 (due to limitations of the API). We pulled data for each of the six crypto currencies and organized them into dataframe. We then cleaned and regularized the data and dropped extraneous columns. 
 
+![Crypto Price](/Resources/App_gif/CryptoPrice.gif)
+
 Once the data cleaning was complete, we imported scikit learn and created a logistic regression model for each dataframe to forecast close prices of the cryptos. The features our model took into consideration were 'open price', 'high', 'low', 'volumn' and 'market cap'. The dataframe with the models' predcitions were then added to the streamlit application to be viewable by the user.
+
+![ML](/Resources/App_gif/ML.gif)
 
 * ## News APIs and Sentiment analysis
 
@@ -101,16 +105,23 @@ We collected articles for sentiment analysis using two separate APIs. We used th
 
 Alpha Vantage Market News & Sentiment historical data begins March 01, 2020. Sentiment scores and labels were gathered within the parameters of the API call. 200 results for each month March-July per crypto were requested and gathered into a dataframe.
 
+![AlphaVantage API Sentiment Scores](/Resources/App_gif/AlphaVantage.gif)
+
 **News API and Sentiment analysis**
 
 The News API was used to call about 10 relevant headlines per day over a 31 day period for a given keyword i.e. in this case the names of the crypto currencies. These headlines are then passed through a library called Textblob. The library utilizes a sentiment polarity analyzer to breakdown the news headlines into a polarity score between the range [-1.0, 1.0]. After converting the headlines into a float score, the headlines are averaged per day. This will be a decent indicator for the overall news sentiment for a given day. Ideally if we had more resources we would like greater amounts of historical news data, but alas without getting through the pay wall we are only able to analyze the most recent month of headlines. 
 
-
+![News API Sentiment Scores](/Resources/App_gif/NewsAPI.gif)
 
 * ## Setting up the streamlit application
 
 After creating dataframes for the historical performance and model predictions and the sentiment analysis from both APIs, we designed a streamlit application that would a allow a user to select which of the six crypto currencies they wished to see data about. The application would display they dataframes and had options to highlight the high and low values in the historical performance. The application also included interactive graphs demonstrating how the sentiment analysis scores and historical performance tracked with each other.
 
+![Max Function](/Resources/App_gif/MaxFunction.gif)
+
+![Min Function](/Resources/App_gif/MinFunction.gif)
+
+![Plots](/Resources/App_gif/Graphs.gif)
 
 
 

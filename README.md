@@ -89,7 +89,7 @@ Our app takes data on the historical close prices of crypto currencies from Alph
 
 Once the data cleaning was complete, we imported scikit learn and created a logistic regression model for each dataframe to forecast close prices of the cryptos. The features our model took into consideration were 'open price', 'high', 'low', 'volumne' and 'market cap'. The dataframe with the models' predcitions were then added to the streamlit application to be viewable by the user.
 
-* ## News and Intelligence APIs and Sentiment analysis
+* ## News APIs and Sentiment analysis
 
 We collected articles for sentiment analysis using two separate APIs. We used the Alpha Vantage News and Intelligence API as well as the News API. Below is a brief outline of the process for pulling and cleaning the data from each API as well as a description of how we conducted sentiment analysis. The sentiment scores from our analysis compiled into a dataframe for each crypto currency and the data frames are included on the streamlit application for the user to view.
 
@@ -97,7 +97,7 @@ We collected articles for sentiment analysis using two separate APIs. We used th
 
 Christine can you give a brief overview of your steps here
 
-**News APIs and Sentiment analysis**
+**News API and Sentiment analysis**
 
 Avi can you give a brief overview of your steps here
 

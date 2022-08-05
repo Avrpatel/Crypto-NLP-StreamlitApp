@@ -149,7 +149,7 @@ elif highlights == 'Min':
     st.dataframe(z_data.style.highlight_min(axis=0, props='color:red'), width=1800)
     
 elif highlights == 'None':
-    st.dataframe(z_data, width=1800)
+    st.dataframe(z_data, 1000)
 
 # NewsAPI Sentiment csv
 

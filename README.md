@@ -69,25 +69,43 @@ The aim of this project is to give investors a holistic view of the performance 
 
 The following currencies and coins will be the focus of the analysis 
 
-*Bitcoin
-*Ethereum
-*Luna
-*Binance
-*Cardano
-*Solana
+   * Bitcoin
+   * Ethereum
+   * Luna
+   * Binance
+   * Cardano
+   * Solana
 
 The components of the analysis provided in the app are listed below:
 
-*Evan - historical close values and logistic regression model
-*Christine - Alphavantage news and intelligence sentiment analysis
-*Avi - additional news api and streamlit app design
+* Evan - historical close values and logistic regression model
+* Christine - Alphavantage news and intelligence sentiment analysis
+* Avi - additional news api and streamlit app design
 
 ## General Process
 
-*## Historical data
-Our app takes data on the historical close prices of crypto currencies from Alpha Vantage Cryptocurrencies API. We collected data beginning August 21, 2020 (due to limitations of the API). We pulled data
+* ## Historical data
+Our app takes data on the historical close prices of crypto currencies from Alpha Vantage Cryptocurrencies API. We collected data beginning August 21, 2020 (due to limitations of the API). We pulled data for each of the six crypto currencies and organized them into dataframe. We then cleaned and regularized the data and dropped extraneous columns. 
 
-*## News and Intelligence APIs and Sentiment analysis
+Once the data cleaning was complete, we imported scikit learn and created a logistic regression model for each dataframe to forecast close prices of the cryptos. The features our model took into consideration were 'open price', 'high', 'low', 'volumne' and 'market cap'. The dataframe with the models' predcitions were then added to the streamlit application to be viewable by the user.
+
+* ## News and Intelligence APIs and Sentiment analysis
+
+We collected articles for sentiment analysis using two separate APIs. We used the Alpha Vantage News and Intelligence API as well as the News API. Below is a brief outline of the process for pulling and cleaning the data from each API as well as a description of how we conducted sentiment analysis. The sentiment scores from our analysis compiled into a dataframe for each crypto currency and the data frames are included on the streamlit application for the user to view.
+
+**Alpha Vantage News and Intelligence APIs and Sentiment analysis**
+
+Christine can you give a brief overview of your steps here
+
+**News APIs and Sentiment analysis**
+
+Avi can you give a brief overview of your steps here
+
+
+* ## Setting up the streamlit application
+
+After creating dataframes for the historical performance and model predictions and the sentiment analysis from both APIs, we designed a streamlit application that would a allow a user to select which of the six crypto currencies they wished to see data about. The application would display they dataframes and had options to highlight the high and low values in the historical performance. The application also included interactive graphs demonstrating how the sentiment analysis scores and historical performance tracked with each other.
+
 
 
 

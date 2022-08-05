@@ -49,9 +49,12 @@ Northwestern Bootcamp Project 3 - Evan Sadasivan, Avinash Patel and Christine Na
             <!-- (Remember to also setup a dot env file containing api keys. You will need keys for both alphavantage and newsapi)  -->
             
 * ###  Other libraries - can be quick installed using the following commands in the pyviz environment:
+
+pip install pathlib 
+pip install requests
+pip install datetime
             
-            Christine, paste in any installs here
-            
+           
              <!-- (The following will need to be run in google co lab before importing anything and working with the machine learning models.Remember to include an ! at the beginning of the install in order to run it) -->
             
            pip install AlphaVantage
@@ -87,7 +90,7 @@ The components of the analysis provided in the app are listed below:
 * ## Historical data
 Our app takes data on the historical close prices of crypto currencies from Alpha Vantage Cryptocurrencies API. We collected data beginning August 21, 2020 (due to limitations of the API). We pulled data for each of the six crypto currencies and organized them into dataframe. We then cleaned and regularized the data and dropped extraneous columns. 
 
-Once the data cleaning was complete, we imported scikit learn and created a logistic regression model for each dataframe to forecast close prices of the cryptos. The features our model took into consideration were 'open price', 'high', 'low', 'volumne' and 'market cap'. The dataframe with the models' predcitions were then added to the streamlit application to be viewable by the user.
+Once the data cleaning was complete, we imported scikit learn and created a logistic regression model for each dataframe to forecast close prices of the cryptos. The features our model took into consideration were 'open price', 'high', 'low', 'volumn' and 'market cap'. The dataframe with the models' predcitions were then added to the streamlit application to be viewable by the user.
 
 * ## News APIs and Sentiment analysis
 
@@ -95,7 +98,7 @@ We collected articles for sentiment analysis using two separate APIs. We used th
 
 **Alpha Vantage News and Intelligence APIs and Sentiment analysis**
 
-Christine can you give a brief overview of your steps here
+Alpha Vantage Market News & Sentiment historical data begins March 01, 2020. Sentiment scores and labels were gathered within the parameters of the API call. 200 results for each month March-July per crypto were requested and gathered into a dataframe.
 
 **News API and Sentiment analysis**
 

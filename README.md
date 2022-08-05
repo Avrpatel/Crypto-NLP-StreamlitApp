@@ -48,15 +48,13 @@ Northwestern Bootcamp Project 3 - Evan Sadasivan, Avinash Patel and Christine Na
 
             <!-- (Remember to also setup a dot env file containing api keys. You will need keys for both alphavantage and newsapi)  -->
             
-* ###  Other libraries - can be quick installed using the following commands in the pyviz environment:
-
-pip install pathlib 
-pip install requests
-pip install datetime
-            
+* ###  Other libraries - can be quick installed using the following commands in the pyviz environment:            
            
              <!-- (The following will need to be run in google co lab before importing anything and working with the machine learning models.Remember to include an ! at the beginning of the install in order to run it) -->
             
+           pip install pathlib 
+           pip install requests
+           pip install datetime
            pip install AlphaVantage
            pip install utils
            pip install hvplot

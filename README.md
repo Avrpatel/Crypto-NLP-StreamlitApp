@@ -59,10 +59,10 @@ Northwestern Bootcamp Project 3 - Evan Sadasivan, Avinash Patel and Christine Na
            pip install utils
            pip install hvplot
            pip install streamlit
+           pip install python-dotenv
+           pip install newsapi-python
+           pip install -U textblob
            
-Avi, paste in any additional pip installs here.
-
-
 
 ## Overall Aim 
 
@@ -100,7 +100,8 @@ Alpha Vantage Market News & Sentiment historical data begins March 01, 2020. Sen
 
 **News API and Sentiment analysis**
 
-Avi can you give a brief overview of your steps here
+The News API was used to call about 10 relevant headlines per day over a 31 day period for a given keyword i.e. in this case the names of the crypto currencies. These headlines are then passed through a library called Textblob. The library utilizes a sentiment polarity analyzer to breakdown the news headlines into a polarity score between the range [-1.0, 1.0]. After converting the headlines into a float score, the headlines are averaged per day. This will be a decent indicator for the overall news sentiment for a given day. Ideally if we had more resources we would like greater amounts of historical news data, but alas without getting through the pay wall we are only able to analyze the most recent month of headlines. 
+
 
 
 * ## Setting up the streamlit application

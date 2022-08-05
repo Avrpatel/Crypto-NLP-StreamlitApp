@@ -67,14 +67,14 @@ Avi, paste in any additional pip installs here.
 
 The aim of this project is to give investors a holistic view of the performance and potential trajectory of six different crypto currencies. We designed a streamlit app that provides clear insights and easily comprehensible data about both the close price of the currency and the sentiments expressed in news articles about the currecy. The app is user friendly and provides timeline graphs as well as dataframes with the original data should users want to drill down further.
 
-The following currencies and coins will be the focus of the analysis:
+The following currencies and coins will be the focus of the analysis 
 
 *Bitcoin
 *Ethereum
 *Luna
-*Solana
-*Cardano
 *Binance
+*Cardano
+*Solana
 
 The components of the analysis provided in the app are listed below:
 
@@ -85,7 +85,7 @@ The components of the analysis provided in the app are listed below:
 ## General Process
 
 *## Historical data
-Our app takes data on the historical close prices of crypto currencies from Alpha Vantage Cryptocurrencies API. We collected data beginning August 21, 2020 (due to limitations of the API)
+Our app takes data on the historical close prices of crypto currencies from Alpha Vantage Cryptocurrencies API. We collected data beginning August 21, 2020 (due to limitations of the API). We pulled data
 
 *## News and Intelligence APIs and Sentiment analysis
 

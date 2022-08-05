@@ -117,10 +117,13 @@ The News API was used to call about 10 relevant headlines per day over a 31 day 
 
 After creating dataframes for the historical performance and model predictions and the sentiment analysis from both APIs, we designed a streamlit application that would a allow a user to select which of the six crypto currencies they wished to see data about. The application would display they dataframes and had options to highlight the high and low values in the historical performance. The application also included interactive graphs demonstrating how the sentiment analysis scores and historical performance tracked with each other.
 
+* ## Max
 ![Max Function](/Resources/App_gif/MaxFunction.gif)
 
+* ## Min
 ![Min Function](/Resources/App_gif/MinFunction.gif)
 
+* ## Plotting Dataframes 
 ![Plots](/Resources/App_gif/Graphs.gif)
 
 

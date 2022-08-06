@@ -4,6 +4,7 @@ import datetime as dt
 from pathlib import Path
 import numpy as np
 import plotly.express as px
+import matplotlib
 
 ######################################################################################
 
@@ -221,7 +222,9 @@ elif plot_type == 'All':
     st.write('You selected All.')
     all_data = combining_dfs(price_df, news_sentiment_df, alpha_sentiment_df)
     all_plot = create_all_plot(all_data)
-    st.plotly_chart(all_plot, use_container_width=True)    
+    st.plotly_chart(all_plot, use_container_width=True)
+    corr_matrix = all_data.corr().style.background_gradient()
+    st.dataframe(corr_matrix, width=1800)    
 
 
 # Radio Button to see ML dataframe and plot

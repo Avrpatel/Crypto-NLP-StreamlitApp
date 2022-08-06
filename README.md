@@ -62,6 +62,7 @@ Northwestern Bootcamp Project 3 - Evan Sadasivan, Avinash Patel and Christine Na
            pip install python-dotenv
            pip install newsapi-python
            pip install -U textblob
+           pip install -U matplotlib
            
 
 ## Overall Aim 
